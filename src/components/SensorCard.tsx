@@ -31,10 +31,10 @@ export function SensorCard({ title, type, reading, unit = 'ADC' }: SensorCardPro
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-3">
           <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${
-            type === 'soil' ? 'bg-primary/10' : 'bg-[hsl(43_96%_56%/0.1)]'
+            type === 'soil' ? 'bg-primary/10' : 'bg-[hsl(48_96%_50%/0.1)]'
           }`}>
             <Icon className={`h-6 w-6 ${
-              type === 'soil' ? 'text-primary' : 'text-[hsl(43_96%_56%)]'
+              type === 'soil' ? 'text-primary' : 'text-[hsl(48_80%_40%)]'
             }`} />
           </div>
           <div>
@@ -61,19 +61,19 @@ export function SensorCard({ title, type, reading, unit = 'ADC' }: SensorCardPro
       </div>
       
       {/* Threshold reference */}
-      <div className="mt-4 rounded-lg bg-secondary/50 p-3">
+      <div className="mt-4 rounded-lg bg-muted p-3">
         <p className="text-xs font-medium text-muted-foreground mb-2">ESP32 Thresholds:</p>
         {type === 'soil' ? (
           <div className="grid grid-cols-3 gap-2 text-xs">
-            <span className="text-[hsl(160_84%_39%)]">≤1500: Good</span>
-            <span className="text-[hsl(43_96%_56%)]">1501-2500: Okay</span>
-            <span className="text-[hsl(0_72%_51%)]">&gt;2500: Bad</span>
+            <span className="text-[hsl(142_71%_35%)}">≤1500: Good</span>
+            <span className="text-[hsl(43_80%_35%)]">1501-2500: Okay</span>
+            <span className="text-[hsl(0_72%_45%)]">&gt;2500: Bad</span>
           </div>
         ) : (
           <div className="grid grid-cols-3 gap-2 text-xs">
-            <span className="text-[hsl(0_72%_51%)]">&lt;1500: Bad</span>
-            <span className="text-[hsl(43_96%_56%)]">1500-2999: Okay</span>
-            <span className="text-[hsl(160_84%_39%)]">≥3000: Good</span>
+            <span className="text-[hsl(0_72%_45%)]">&lt;1500: Bad</span>
+            <span className="text-[hsl(43_80%_35%)]">1500-2999: Okay</span>
+            <span className="text-[hsl(142_71%_35%)]">≥3000: Good</span>
           </div>
         )}
       </div>

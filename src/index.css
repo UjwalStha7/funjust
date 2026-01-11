@@ -7,59 +7,59 @@
 
 @layer base {
   :root {
-    --background: 150 25% 6%;
-    --foreground: 140 20% 95%;
+    --background: 140 30% 98%;
+    --foreground: 150 40% 10%;
 
-    --card: 150 20% 9%;
-    --card-foreground: 140 20% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 40% 10%;
 
-    --popover: 150 20% 9%;
-    --popover-foreground: 140 20% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 40% 10%;
 
-    --primary: 142 71% 45%;
+    --primary: 142 71% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 150 15% 14%;
-    --secondary-foreground: 140 20% 85%;
+    --secondary: 140 25% 94%;
+    --secondary-foreground: 150 40% 15%;
 
-    --muted: 150 12% 12%;
-    --muted-foreground: 145 10% 50%;
+    --muted: 140 20% 96%;
+    --muted-foreground: 150 15% 40%;
 
-    --accent: 150 15% 16%;
-    --accent-foreground: 140 20% 95%;
+    --accent: 140 30% 92%;
+    --accent-foreground: 150 40% 15%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 150 12% 16%;
-    --input: 150 12% 16%;
-    --ring: 142 71% 45%;
+    --border: 140 20% 88%;
+    --input: 140 20% 88%;
+    --ring: 142 71% 40%;
 
     --radius: 0.75rem;
 
     /* Status Colors */
-    --status-good: 142 71% 45%;
-    --status-okay: 43 96% 56%;
+    --status-good: 142 71% 40%;
+    --status-okay: 43 96% 50%;
     --status-bad: 0 72% 51%;
 
     /* Chart Colors */
-    --chart-soil: 142 71% 45%;
-    --chart-light: 48 96% 53%;
-    --chart-grid: 150 12% 20%;
+    --chart-soil: 142 71% 40%;
+    --chart-light: 48 96% 50%;
+    --chart-grid: 140 15% 85%;
 
     /* Glow Effects */
-    --glow-good: 0 0 20px hsl(142 71% 45% / 0.4);
-    --glow-okay: 0 0 20px hsl(43 96% 56% / 0.4);
-    --glow-bad: 0 0 20px hsl(0 72% 51% / 0.4);
+    --glow-good: 0 0 20px hsl(142 71% 40% / 0.3);
+    --glow-okay: 0 0 20px hsl(43 96% 50% / 0.3);
+    --glow-bad: 0 0 20px hsl(0 72% 51% / 0.3);
 
-    --sidebar-background: 150 20% 9%;
-    --sidebar-foreground: 140 20% 95%;
-    --sidebar-primary: 142 71% 45%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 150 40% 10%;
+    --sidebar-primary: 142 71% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 150 15% 16%;
-    --sidebar-accent-foreground: 140 20% 95%;
-    --sidebar-border: 150 12% 16%;
-    --sidebar-ring: 142 71% 45%;
+    --sidebar-accent: 140 30% 92%;
+    --sidebar-accent-foreground: 150 40% 15%;
+    --sidebar-border: 140 20% 88%;
+    --sidebar-ring: 142 71% 40%;
   }
 }
 
@@ -81,21 +81,23 @@
 @layer components {
   .sensor-card {
     @apply relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300;
-    background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(150 20% 7%) 100%);
+    background: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(140 30% 98%) 100%);
+    box-shadow: 0 4px 20px -4px hsl(142 71% 40% / 0.1);
   }
 
   .sensor-card::before {
     content: '';
     @apply absolute inset-0 opacity-0 transition-opacity duration-300;
-    background: radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.1) 0%, transparent 60%);
+    background: radial-gradient(circle at 50% 0%, hsl(142 71% 40% / 0.05) 0%, transparent 60%);
   }
 
-  .sensor-card:hover::before {
-    @apply opacity-100;
+  .sensor-card:hover {
+    box-shadow: 0 8px 30px -4px hsl(142 71% 40% / 0.15);
+    border-color: hsl(142 71% 40% / 0.3);
   }
 
   .status-indicator {
-    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium;
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium border;
   }
 
   .status-good {
@@ -115,7 +117,8 @@
 
   .chart-container {
     @apply rounded-xl border border-border bg-card p-6;
-    background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(150 20% 7%) 100%);
+    background: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(140 30% 98%) 100%);
+    box-shadow: 0 4px 20px -4px hsl(142 71% 40% / 0.1);
   }
 
   .value-display {
@@ -132,19 +135,19 @@
   }
 
   .pulse-dot.good {
-    @apply bg-[hsl(160_84%_39%)];
+    @apply bg-[hsl(142_71%_40%)];
   }
 
   .pulse-dot.good::before {
-    @apply bg-[hsl(160_84%_39%/0.75)];
+    @apply bg-[hsl(142_71%_40%/0.75)];
   }
 
   .pulse-dot.okay {
-    @apply bg-[hsl(43_96%_56%)];
+    @apply bg-[hsl(43_96%_50%)];
   }
 
   .pulse-dot.okay::before {
-    @apply bg-[hsl(43_96%_56%/0.75)];
+    @apply bg-[hsl(43_96%_50%/0.75)];
   }
 
   .pulse-dot.bad {
