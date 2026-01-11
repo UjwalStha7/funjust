@@ -44,7 +44,7 @@ export function SensorChart({ title, data, type }: SensorChartProps) {
           </p>
           <p className={`text-xs font-medium ${
             data.condition === 'Good' 
-              ? 'text-[hsl(160_84%_39%)]' 
+              ? 'text-[hsl(142_71%_45%)]' 
               : data.condition === 'Okay'
                 ? 'text-[hsl(43_96%_56%)]'
                 : 'text-[hsl(0_72%_51%)]'
@@ -79,23 +79,23 @@ export function SensorChart({ title, data, type }: SensorChartProps) {
             
             <CartesianGrid 
               strokeDasharray="3 3" 
-              stroke="hsl(220, 14%, 25%)" 
+              stroke="hsl(150, 12%, 20%)" 
               vertical={false}
             />
             
             <XAxis
               dataKey="time"
-              tick={{ fontSize: 11, fill: 'hsl(215, 16%, 55%)' }}
+              tick={{ fontSize: 11, fill: 'hsl(145, 10%, 50%)' }}
               tickLine={false}
-              axisLine={{ stroke: 'hsl(220, 14%, 25%)' }}
+              axisLine={{ stroke: 'hsl(150, 12%, 20%)' }}
               interval="preserveStartEnd"
             />
             
             <YAxis
               domain={type === 'soil' ? [0, 4000] : [0, 4500]}
-              tick={{ fontSize: 11, fill: 'hsl(215, 16%, 55%)' }}
+              tick={{ fontSize: 11, fill: 'hsl(145, 10%, 50%)' }}
               tickLine={false}
-              axisLine={{ stroke: 'hsl(220, 14%, 25%)' }}
+              axisLine={{ stroke: 'hsl(150, 12%, 20%)' }}
               tickFormatter={(value) => `${value}`}
             />
             
@@ -123,7 +123,7 @@ export function SensorChart({ title, data, type }: SensorChartProps) {
                 r: 6,
                 stroke: primaryColor,
                 strokeWidth: 2,
-                fill: 'hsl(220, 18%, 13%)',
+                fill: 'hsl(150, 20%, 9%)',
               }}
             />
           </AreaChart>
