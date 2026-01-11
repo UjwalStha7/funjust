@@ -18,18 +18,18 @@ interface SensorChartProps {
 
 export function SensorChart({ title, data, type }: SensorChartProps) {
   // Color based on sensor type
-  const primaryColor = type === 'soil' ? 'hsl(160, 84%, 39%)' : 'hsl(43, 96%, 56%)';
+  const primaryColor = type === 'soil' ? 'hsl(142, 71%, 40%)' : 'hsl(48, 96%, 50%)';
   const gradientId = `gradient-${type}`;
   
   // Thresholds for reference lines
   const thresholds = type === 'soil' 
     ? [
-        { value: 1500, label: 'Good/Okay', color: 'hsl(160, 84%, 39%)' },
+        { value: 1500, label: 'Good/Okay', color: 'hsl(142, 71%, 40%)' },
         { value: 2500, label: 'Okay/Bad', color: 'hsl(0, 72%, 51%)' },
       ]
     : [
         { value: 1500, label: 'Bad/Okay', color: 'hsl(0, 72%, 51%)' },
-        { value: 3000, label: 'Okay/Good', color: 'hsl(160, 84%, 39%)' },
+        { value: 3000, label: 'Okay/Good', color: 'hsl(142, 71%, 40%)' },
       ];
 
   // Custom tooltip
@@ -44,10 +44,10 @@ export function SensorChart({ title, data, type }: SensorChartProps) {
           </p>
           <p className={`text-xs font-medium ${
             data.condition === 'Good' 
-              ? 'text-[hsl(142_71%_45%)]' 
+              ? 'text-[hsl(142_71%_35%)]' 
               : data.condition === 'Okay'
-                ? 'text-[hsl(43_96%_56%)]'
-                : 'text-[hsl(0_72%_51%)]'
+                ? 'text-[hsl(43_80%_35%)]'
+                : 'text-[hsl(0_72%_45%)]'
           }`}>
             {data.condition}
           </p>
@@ -79,23 +79,23 @@ export function SensorChart({ title, data, type }: SensorChartProps) {
             
             <CartesianGrid 
               strokeDasharray="3 3" 
-              stroke="hsl(150, 12%, 20%)" 
+              stroke="hsl(140, 15%, 85%)" 
               vertical={false}
             />
             
             <XAxis
               dataKey="time"
-              tick={{ fontSize: 11, fill: 'hsl(145, 10%, 50%)' }}
+              tick={{ fontSize: 11, fill: 'hsl(150, 15%, 40%)' }}
               tickLine={false}
-              axisLine={{ stroke: 'hsl(150, 12%, 20%)' }}
+              axisLine={{ stroke: 'hsl(140, 15%, 85%)' }}
               interval="preserveStartEnd"
             />
             
             <YAxis
               domain={type === 'soil' ? [0, 4000] : [0, 4500]}
-              tick={{ fontSize: 11, fill: 'hsl(145, 10%, 50%)' }}
+              tick={{ fontSize: 11, fill: 'hsl(150, 15%, 40%)' }}
               tickLine={false}
-              axisLine={{ stroke: 'hsl(150, 12%, 20%)' }}
+              axisLine={{ stroke: 'hsl(140, 15%, 85%)' }}
               tickFormatter={(value) => `${value}`}
             />
             
@@ -123,7 +123,7 @@ export function SensorChart({ title, data, type }: SensorChartProps) {
                 r: 6,
                 stroke: primaryColor,
                 strokeWidth: 2,
-                fill: 'hsl(150, 20%, 9%)',
+                fill: 'hsl(0, 0%, 100%)',
               }}
             />
           </AreaChart>
