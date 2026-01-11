@@ -57,6 +57,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        status: {
+          good: "hsl(var(--status-good))",
+          okay: "hsl(var(--status-okay))",
+          bad: "hsl(var(--status-bad))",
+        },
+        chart: {
+          soil: "hsl(var(--chart-soil))",
+          light: "hsl(var(--chart-light))",
+          grid: "hsl(var(--chart-grid))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
